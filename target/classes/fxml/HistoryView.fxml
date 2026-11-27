@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stockmanager.controller.HistoryController"
+            stylesheets="@../css/style.css">
+
+    <center>
+        <VBox spacing="18" styleClass="content">
+
+            <Label text="Historique des mouvements"
+                   styleClass="page-title"/>
+
+            <Label text="Filtres de recherche"
+                   styleClass="section-title"/>
+
+            <HBox spacing="15">
+
+                <ComboBox fx:id="articleComboBox"
+                          promptText="Tous les articles"
+                          prefWidth="250"/>
+
+                <ComboBox fx:id="typeComboBox"
+                          promptText="Tous les mouvements"
+                          prefWidth="200"/>
+
+                <Button text="Rechercher"
+                        onAction="#handleSearch"/>
+
+                <Button text="Réinitialiser"
+                        onAction="#handleReset"/>
+
+            </HBox>
+
+            <TableView fx:id="historyTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="idColumn"
+                                 text="ID"
+                                 prefWidth="60"/>
+
+                    <TableColumn fx:id="articleColumn"
+                                 text="Article"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="typeColumn"
+                                 text="Type"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="quantityColumn"
+                                 text="Quantité"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="dateColumn"
+                                 text="Date"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="descriptionColumn"
+                                 text="Description"
+                                 prefWidth="250"/>
+
+                </columns>
+
+            </TableView>
+
+            <Label fx:id="resultCountLabel"
+                   text="Nombre de mouvements : 0"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

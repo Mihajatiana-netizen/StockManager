@@ -1,0 +1,15 @@
+com/stockmanager/controller/CategoryController.class
+com/stockmanager/repository/ArticleRepository.class
+com/stockmanager/repository/CategoryRepository.class
+com/stockmanager/service/MovementService.class
+com/stockmanager/service/CategoryService.class
+com/stockmanager/service/AlertService.class
+com/stockmanager/controller/ArticleController.class
+com/stockmanager/model/Movement.class
+com/stockmanager/repository/MovementRepository.class
+com/stockmanager/model/Article.class
+com/stockmanager/controller/HistoryController.class
+com/stockmanager/service/ArticleService.class
+com/stockmanager/Main.class
+com/stockmanager/model/Category.class
+com/stockmanager/controller/AlertController.class

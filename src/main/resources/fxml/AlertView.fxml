@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stockmanager.controller.AlertController"
+            stylesheets="@../css/style.css">
+
+    <center>
+        <VBox spacing="18" styleClass="content">
+
+            <Label text="Alertes de stock"
+                   styleClass="page-title"/>
+
+            <Label fx:id="outOfStockCountLabel"
+                   text="Articles en rupture : 0"
+                   styleClass="section-title"/>
+
+            <TableView fx:id="outOfStockTable"
+                       prefHeight="200">
+
+                <columns>
+                    <TableColumn fx:id="outReferenceColumn"
+                                 text="Référence"
+                                 prefWidth="130"/>
+
+                    <TableColumn fx:id="outNameColumn"
+                                 text="Article"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="outQuantityColumn"
+                                 text="Quantité"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="outMinimumColumn"
+                                 text="Seuil minimal"
+                                 prefWidth="120"/>
+                </columns>
+
+            </TableView>
+
+            <Label fx:id="lowStockCountLabel"
+                   text="Stocks faibles : 0"
+                   styleClass="section-title"/>
+
+            <TableView fx:id="lowStockTable"
+                       prefHeight="250"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="lowReferenceColumn"
+                                 text="Référence"
+                                 prefWidth="130"/>
+
+                    <TableColumn fx:id="lowNameColumn"
+                                 text="Article"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="lowQuantityColumn"
+                                 text="Quantité actuelle"
+                                 prefWidth="130"/>
+
+                    <TableColumn fx:id="lowMinimumColumn"
+                                 text="Seuil minimal"
+                                 prefWidth="120"/>
+                </columns>
+
+            </TableView>
+
+            <Button text="Actualiser"
+                    onAction="#handleRefresh"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

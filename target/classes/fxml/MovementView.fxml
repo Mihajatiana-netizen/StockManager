@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stockmanager.controller.MovementController"
+            stylesheets="@../css/style.css">
+
+    <center>
+        <VBox spacing="15" styleClass="content">
+
+            <Label text="Gestion des mouvements"
+                   styleClass="page-title"/>
+
+            <Label text="Enregistrer un mouvement"
+                   styleClass="section-title"/>
+
+            <GridPane hgap="15" vgap="12">
+
+                <Label text="Article :"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="articleComboBox"
+                          promptText="Sélectionner un article"
+                          maxWidth="Infinity"
+                          GridPane.rowIndex="0"
+                          GridPane.columnIndex="1"/>
+
+                <Label text="Type de mouvement :"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="typeComboBox"
+                          promptText="Choisir le type"
+                          maxWidth="Infinity"
+                          GridPane.rowIndex="1"
+                          GridPane.columnIndex="1"/>
+
+                <Label text="Quantité :"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="quantityField"
+                           promptText="Quantité"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Description :"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextArea fx:id="descriptionField"
+                          promptText="Motif du mouvement"
+                          prefRowCount="2"
+                          GridPane.rowIndex="3"
+                          GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Enregistrer"
+                        onAction="#handleSave"/>
+
+                <Button text="Vider"
+                        onAction="#handleClear"/>
+            </HBox>
+
+            <Label text="Historique des mouvements"
+                   styleClass="section-title"/>
+
+            <TableView fx:id="movementTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="idColumn"
+                                 text="ID"
+                                 prefWidth="50"/>
+
+                    <TableColumn fx:id="articleColumn"
+                                 text="Article"
+                                 prefWidth="160"/>
+
+                    <TableColumn fx:id="typeColumn"
+                                 text="Type"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="quantityColumn"
+                                 text="Quantité"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="dateColumn"
+                                 text="Date"
+                                 prefWidth="160"/>
+
+                    <TableColumn fx:id="descriptionColumn"
+                                 text="Description"
+                                 prefWidth="200"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

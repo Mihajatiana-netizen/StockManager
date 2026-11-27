@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stockmanager.controller.MainController"
+            stylesheets="@../css/style.css">
+
+    <left>
+        <VBox prefWidth="220" styleClass="sidebar">
+
+            <Label text="StockManager" styleClass="logo"/>
+
+            <Separator/>
+
+            <Button text="Tableau de bord"
+                    styleClass="nav-button"
+                    onAction="#showDashboard"/>
+
+            <Button text="Articles"
+                    styleClass="nav-button"
+                    onAction="#showArticles"/>
+
+            <Button text="Catégories"
+                    styleClass="nav-button"
+                    onAction="#showCategories"/>
+
+            <Button text="Mouvements"
+                    styleClass="nav-button"
+                    onAction="#showMovements"/>
+
+            <Button text="Alertes"
+                    styleClass="nav-button"
+                    onAction="#showAlerts"/>
+
+            <Button text="Historique"
+                    styleClass="nav-button"
+                    onAction="#showHistory"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" styleClass="content">
+
+            <Label text="Tableau de bord"
+                   styleClass="page-title"/>
+
+            <GridPane hgap="15" vgap="15">
+
+                <VBox styleClass="stat-card"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="0">
+                    <Label text="Articles"/>
+                    <Label fx:id="totalArticlesLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="0">
+                    <Label text="Catégories"/>
+                    <Label fx:id="totalCategoriesLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="1">
+                    <Label text="Stock faible"/>
+                    <Label fx:id="lowStockLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="1">
+                    <Label text="Ruptures"/>
+                    <Label fx:id="outOfStockLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="2">
+                    <Label text="Mouvements"/>
+                    <Label fx:id="totalMovementsLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox styleClass="stat-card"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2">
+                    <Label text="Valeur du stock"/>
+                    <Label fx:id="stockValueLabel"
+                           text="0 Ar"
+                           styleClass="stat-value"/>
+                </VBox>
+
+            </GridPane>
+
+            <VBox styleClass="stat-card" spacing="10"
+                  VBox.vgrow="ALWAYS">
+
+                <Label text="Activité récente"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="recentMovementsTable"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="recentArticleColumn"
+                                     text="Article"
+                                     prefWidth="180"/>
+
+                        <TableColumn fx:id="recentTypeColumn"
+                                     text="Type"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="recentQuantityColumn"
+                                     text="Quantité"
+                                     prefWidth="100"/>
+
+                        <TableColumn fx:id="recentDateColumn"
+                                     text="Date"
+                                     prefWidth="180"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

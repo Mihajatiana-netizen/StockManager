@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stockmanager.controller.CategoryController"
+            stylesheets="@../css/style.css">
+
+    <center>
+        <VBox spacing="20" styleClass="content">
+
+            <Label text="Gestion des catégories"
+                   styleClass="page-title"/>
+
+            <VBox spacing="10" styleClass="stat-card">
+
+                <Label text="Informations de la catégorie"
+                       styleClass="section-title"/>
+
+                <TextField fx:id="nameField"
+                           promptText="Nom de la catégorie"/>
+
+                <TextArea fx:id="descriptionField"
+                          promptText="Description"
+                          prefRowCount="3"
+                          wrapText="true"/>
+
+                <HBox spacing="10">
+                    <Button text="Ajouter"
+                            onAction="#handleAdd"
+                            styleClass="nav-button"/>
+
+                    <Button text="Modifier"
+                            onAction="#handleUpdate"
+                            styleClass="nav-button"/>
+
+                    <Button text="Supprimer"
+                            onAction="#handleDelete"
+                            styleClass="nav-button"/>
+
+                    <Button text="Vider"
+                            onAction="#handleClear"/>
+                </HBox>
+
+            </VBox>
+
+            <VBox spacing="10" styleClass="stat-card">
+
+                <Label text="Liste des catégories"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="categoryTable"
+                onMouseClicked="#handleSelect"
+                           VBox.vgrow="ALWAYS">
+                    
+
+                    <columns>
+                        <TableColumn fx:id="idColumn"
+                                     text="ID"
+                                     prefWidth="70"/>
+
+                        <TableColumn fx:id="nameColumn"
+                                     text="Nom"
+                                     prefWidth="200"/>
+
+                        <TableColumn fx:id="descriptionColumn"
+                                     text="Description"
+                                     prefWidth="400"/>
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
